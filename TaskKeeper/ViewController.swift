@@ -36,9 +36,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         return cell
     }
-    
     @IBAction func tapNewTask(_ sender: Any) {
         performSegue(withIdentifier: "addTask", sender: nil)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextVC = segue.destination as! NewTaskViewController
+        nextVC.previousVC = self
     }
     
     func createTask() -> [Task]{
