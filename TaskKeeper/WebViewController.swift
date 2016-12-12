@@ -9,7 +9,8 @@
 import UIKit
 
 class WebViewController: UIViewController {
-
+    
+    //Outlet created for webView and my website is loaded with NSURL
     @IBOutlet weak var webView: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -9,7 +9,8 @@
 import UIKit
 
 class NewTaskViewController: UIViewController {
-
+    
+    //Outlets created so that taskNameField and important switch can be referenced
     @IBOutlet weak var taskNameField: UITextField!
     @IBOutlet weak var importantSwitch: UISwitch!
     override func viewDidLoad() {
@@ -17,6 +18,7 @@ class NewTaskViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    //When the add task button is tapped the task name and important status are set to what the user provided in the outlets. The data is saved to the core data contect and then the navigation controller will return the user to the previous view.
     @IBAction func addTaskTapped(_ sender: Any) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let task = Task(context: context)

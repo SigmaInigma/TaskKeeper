@@ -18,6 +18,8 @@ class CompleteTaskViewController: UIViewController {
         // Do any additional setup after loading the view.
         taskLabel.text = task!.name!
     }
+    
+    //When complete button is tapped the task that was passed in from the context. The context is saved and then the nav controlller returns the user to the previous view. 
     @IBAction func completeTapped(_ sender: Any) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         context.delete(task!)
