@@ -12,15 +12,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     var tasks : [Task] = []
-    var selectedIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        tasks = createTask()
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getTasks()
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,47 +34,37 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = UITableViewCell()
         let task = tasks[indexPath.row]
         if task.important{
-            cell.textLabel?.text = "❗️ \(task.name)"
+            cell.textLabel?.text = "❗️ \(task.name!)"
         }
         else{
-            cell.textLabel?.text = task.name
+            cell.textLabel?.text = task.name!
         }
         return cell
     }
     @IBAction func tapNewTask(_ sender: Any) {
         performSegue(withIdentifier: "addTask", sender: nil)
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addTask"{
-            let nextVC = segue.destination as! NewTaskViewController
-            nextVC.previousVC = self
+    
+    func getTasks(){
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        do{
+           tasks = try context.fetch(Task.fetchRequest()) as! [Task]
         }
+        catch{
+            print("Error")
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "selectTask"{
             let nextVC = segue.destination as! CompleteTaskViewController
-            nextVC.task = sender as! Task
-            nextVC.previousVC = self
+            nextVC.task = sender as? Task
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndex = indexPath.row
         let task = tasks[indexPath.row]
         performSegue(withIdentifier: "selectTask", sender: task)
-    }
-    
-    func createTask() -> [Task]{
-        let task1 = Task()
-        task1.name = "Walk the Dog"
-        task1.important = true
-        
-        let task2 = Task()
-        task2.name = "Do the Laundry"
-        task2.important = false
-        
-        let task3 = Task()
-        task3.name = "Go Running"
-        task3.important = false
-        
-        return [task1, task2, task3]
     }
     
 }

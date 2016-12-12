@@ -10,7 +10,6 @@ import UIKit
 
 class NewTaskViewController: UIViewController {
 
-    var previousVC = ViewController()
     @IBOutlet weak var taskNameField: UITextField!
     @IBOutlet weak var importantSwitch: UISwitch!
     override func viewDidLoad() {
@@ -19,12 +18,12 @@ class NewTaskViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func addTaskTapped(_ sender: Any) {
-        let task = Task()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let task = Task(context: context)
         task.name = taskNameField.text!
         task.important = importantSwitch.isOn
-        
-        previousVC.tasks.append(task)
-        previousVC.tableView.reloadData()
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+
         navigationController!.popViewController(animated: true)
     }
     
