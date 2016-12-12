@@ -9,9 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var tableView: UITableView!
     var tasks : [Task] = []
+    var selectedIndex = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -40,8 +42,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         performSegue(withIdentifier: "addTask", sender: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextVC = segue.destination as! NewTaskViewController
-        nextVC.previousVC = self
+        if segue.identifier == "addTask"{
+            let nextVC = segue.destination as! NewTaskViewController
+            nextVC.previousVC = self
+        }
+        if segue.identifier == "selectTask"{
+            let nextVC = segue.destination as! CompleteTaskViewController
+            nextVC.task = sender as! Task
+            nextVC.previousVC = self
+        }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
+        let task = tasks[indexPath.row]
+        performSegue(withIdentifier: "selectTask", sender: task)
     }
     
     func createTask() -> [Task]{
@@ -59,6 +73,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         return [task1, task2, task3]
     }
-
+    
 }
 
