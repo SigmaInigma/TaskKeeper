@@ -10,6 +10,40 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Web View Controller-->
+        <scene sceneID="ynG-38-Xmz">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="dyh-Er-mhg" customClass="WebViewController" customModule="TaskKeeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q5k-rt-ejp"/>
+                        <viewControllerLayoutGuide type="bottom" id="3NF-G7-s8c"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lC5-Ld-Xoh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5NO-Qm-dqO">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5NO-Qm-dqO" firstAttribute="top" secondItem="q5k-rt-ejp" secondAttribute="bottom" id="4hH-30-K9p"/>
+                            <constraint firstItem="5NO-Qm-dqO" firstAttribute="centerX" secondItem="lC5-Ld-Xoh" secondAttribute="centerX" id="Nhg-P2-H4g"/>
+                            <constraint firstAttribute="trailing" secondItem="5NO-Qm-dqO" secondAttribute="trailing" id="gEs-Zf-BVG"/>
+                            <constraint firstItem="5NO-Qm-dqO" firstAttribute="leading" secondItem="lC5-Ld-Xoh" secondAttribute="leading" id="lWX-p6-Jcm"/>
+                            <constraint firstItem="3NF-G7-s8c" firstAttribute="top" secondItem="5NO-Qm-dqO" secondAttribute="bottom" id="pS2-Sg-6cl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="5NO-Qm-dqO" id="Bpk-lI-LVF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uM4-26-yEh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="929" y="-663"/>
+        </scene>
         <!--Task Keeper-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -37,6 +71,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Task Keeper" id="e8m-FC-Fnw">
                         <barButtonItem key="backBarButtonItem" title="Back" id="a4i-Yf-HKZ"/>
+                        <barButtonItem key="leftBarButtonItem" title="About" id="p0n-WD-0TD">
+                            <connections>
+                                <action selector="tapWebUI:" destination="BYZ-38-t0r" id="RcF-Pv-pHS"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vCp-Bx-tHf">
                             <connections>
                                 <action selector="tapNewTask:" destination="BYZ-38-t0r" id="z59-ua-RBt"/>
@@ -47,11 +86,12 @@
                         <outlet property="tableView" destination="08e-s2-4lu" id="i0n-nq-8pA"/>
                         <segue destination="Piu-ge-a68" kind="show" identifier="addTask" id="reb-W4-n5r"/>
                         <segue destination="WK5-Yy-RbA" kind="show" identifier="selectTask" id="egJ-m7-l6b"/>
+                        <segue destination="dyh-Er-mhg" kind="show" identifier="webUI" id="cLx-TT-wf3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="929" y="36"/>
+            <point key="canvasLocation" x="966" y="36"/>
         </scene>
         <!--Complete Task View Controller-->
         <scene sceneID="jwC-o4-2oU">

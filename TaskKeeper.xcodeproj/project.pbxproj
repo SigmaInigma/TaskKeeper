@@ -15,6 +15,7 @@
 		2DE968E21DFDEC2900C5B006 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DE968E01DFDEC2900C5B006 /* LaunchScreen.storyboard */; };
 		2DE968EC1DFE04A600C5B006 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE968EB1DFE04A600C5B006 /* NewTaskViewController.swift */; };
 		2DE968EE1DFE15B400C5B006 /* CompleteTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE968ED1DFE15B400C5B006 /* CompleteTaskViewController.swift */; };
+		2DE969111DFEC7DD00C5B006 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE969101DFEC7DD00C5B006 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		2DE968E31DFDEC2900C5B006 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DE968EB1DFE04A600C5B006 /* NewTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 		2DE968ED1DFE15B400C5B006 /* CompleteTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteTaskViewController.swift; sourceTree = "<group>"; };
+		2DE969101DFEC7DD00C5B006 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				2DE968D61DFDEC2900C5B006 /* ViewController.swift */,
 				2DE968EB1DFE04A600C5B006 /* NewTaskViewController.swift */,
 				2DE968ED1DFE15B400C5B006 /* CompleteTaskViewController.swift */,
+				2DE969101DFEC7DD00C5B006 /* WebViewController.swift */,
 				2DE968D81DFDEC2900C5B006 /* Main.storyboard */,
 				2DE968DE1DFDEC2900C5B006 /* Assets.xcassets */,
 				2DE968E01DFDEC2900C5B006 /* LaunchScreen.storyboard */,
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DE968EC1DFE04A600C5B006 /* NewTaskViewController.swift in Sources */,
+				2DE969111DFEC7DD00C5B006 /* WebViewController.swift in Sources */,
 				2DE968EE1DFE15B400C5B006 /* CompleteTaskViewController.swift in Sources */,
 				2DE968D71DFDEC2900C5B006 /* ViewController.swift in Sources */,
 				2DE968D51DFDEC2900C5B006 /* AppDelegate.swift in Sources */,
@@ -311,6 +315,7 @@
 				2DE968E81DFDEC2900C5B006 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

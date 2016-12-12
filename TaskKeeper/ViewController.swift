@@ -44,6 +44,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func tapNewTask(_ sender: Any) {
         performSegue(withIdentifier: "addTask", sender: nil)
     }
+    @IBAction func tapWebUI(_ sender: Any) {
+        performSegue(withIdentifier: "webUI", sender: nil)
+    }
     
     func getTasks(){
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
